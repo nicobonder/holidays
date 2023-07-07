@@ -160,9 +160,9 @@ const mapFive = () => {
   
   
 
-const msDiff = nextHoliday.date.getTime() - today.getTime();
-const daysDiff = Math.ceil(msDiff / (1000 * 3600 * 24));
-
+  const msDiff: number = nextHoliday.date.getTime() - today.getTime();
+  const daysDiff: number = Math.ceil(msDiff / (1000 * 3600 * 24));
+  
 //Relative Time Format function
 const rtf = new Intl.RelativeTimeFormat('es-AR', {numeric: "auto"});
 

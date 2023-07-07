@@ -4,19 +4,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className='footer'
-        // style={{
-        //   width: "100%",
-
-        //   bottom: 0,
-        //   display: "flex",
-        //   justifyContent: "center",
-        //   margin: "auto",
-        //   marginTop: "1rem",
-        //   gap: 20,
-        //   background: '#75aadb'
-        // }}
-      >
+    <footer className='footer'>
         <a target="_blank" href='https://www.linkedin.com/in/nicobonder/'>
           <svg fill='#fff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'>
             <path

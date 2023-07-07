@@ -1,5 +1,6 @@
 import './index.css'
 
+
 //JSON CON LOS FERIADOS ARGENTINOS
 const HOLIDAYS = [
   {
@@ -117,54 +118,53 @@ const HOLIDAYS = [
 ]
 ;
 
-//FECHA ACTUAL
+// Current date
 const today = new Date();
 const nextHoliday = HOLIDAYS.find(holiday => holiday.date > today) || {
-  ...HOLIDAYS[0], 
+  ...HOLIDAYS[0],
   date: new Date(
     HOLIDAYS[0].date.getFullYear() + 1,
     HOLIDAYS[0].date.getMonth(),
-    HOLIDAYS[0].date.getDate() + 1,
+    HOLIDAYS[0].date.getDate() + 1
   ),
 };
 console.log('next', nextHoliday);
 
 const prevHoliday = HOLIDAYS
   .filter(holiday => holiday.date < today)
-  .sort((a, b) => b.date - a.date)
+  .sort((a, b) => a.date.getTime() - b.date.getTime())
   [0];
 
 const futureHoliday = HOLIDAYS
   .filter(holiday => holiday.date > today)
-  .sort((a, b) => a.date - b.date)
-  [1];
+  .sort((a, b) => a.date.getTime() - b.date.getTime())
+  [0];
 
 const nextFive = HOLIDAYS
   .filter(holiday => holiday.date > today)
-  .sort((a, b) => a.date - b.date)
+  .sort((a, b) => a.date.getTime() - b.date.getTime())
   .slice(0, 10);
 
 const mapFive = () => {
   return (
-  <ul className='listHoliday'>
+    <ul className='listHoliday'>
       {nextFive.map(holiday => (
         <li key={holiday.date.toISOString()}>
           <p className='infoTextList'>{String.fromCharCode(160)} {holiday.date.getUTCDate().toString().padStart(2, "0")}/{(holiday.date.getUTCMonth() + 1).toString().padStart(2, "0")}  <span className='divisor'> | </span> </p>
-        </li>  
-      ))}  
+        </li>
+      ))}
     </ul>
   );
-}; 
-  console.log('five', nextFive);
-  console.log('mapfive', mapFive);
-  
-  
+};
+console.log('five', nextFive);
+console.log('mapfive', mapFive);
 
-  const msDiff: number = nextHoliday.date.getTime() - today.getTime();
-  const daysDiff: number = Math.ceil(msDiff / (1000 * 3600 * 24));
-  
-//Relative Time Format function
-const rtf = new Intl.RelativeTimeFormat('es-AR', {numeric: "auto"});
+
+const msDiff: number = nextHoliday.date.getTime() - today.getTime();
+const daysDiff: number = Math.ceil(msDiff / (1000 * 3600 * 24));
+
+// Relative Time Format function
+const rtf = new Intl.RelativeTimeFormat('es-AR', { numeric: "auto" });
 
 function App() {
   return (

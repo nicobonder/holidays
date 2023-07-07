@@ -23,15 +23,13 @@
   padding: 0;
 }
 
-body {
-  padding: 0.5rem;
-}
-
 .sectionHoliday {
   background: linear-gradient(to bottom right, #75aadb 50%, white 50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 90vh;
 }
 
 .nextHoliday, .pastHoliday, .futureHoliday, .listDiv  {
@@ -39,7 +37,7 @@ body {
 }
 
 .nextHoliday {
-  margin: 0.5rem;
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +72,7 @@ body {
 .pastFuture {
   display: flex;
   gap: 1rem;
-  margin: 1rem auto;
+  margin: 0 auto 2rem auto;
   justify-content: center;
 }
 
@@ -86,7 +84,7 @@ body {
 .listDiv {
   width: 91%;
   padding: 0.5rem 1rem;
-  margin: 1rem auto;
+  margin: 0 auto;
 }
 
 .listHoliday {
@@ -114,7 +112,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  height: 3rem;
+  height: 10vh;
   background-color: black;
 }
 

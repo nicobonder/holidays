@@ -132,13 +132,13 @@ console.log('next', nextHoliday);
 
 const prevHoliday = HOLIDAYS
   .filter(holiday => holiday.date < today)
-  .sort((a, b) => a.date.getTime() - b.date.getTime())
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
   [0];
 
 const futureHoliday = HOLIDAYS
   .filter(holiday => holiday.date > today)
   .sort((a, b) => a.date.getTime() - b.date.getTime())
-  [0];
+  [1];
 
 const nextFive = HOLIDAYS
   .filter(holiday => holiday.date > today)
@@ -189,7 +189,7 @@ function App() {
         </div>
       </div>
       <div className='listDiv'>
-        <h2 className='subTitle'>Los próximos 5 feriados</h2>
+        <h2 className='subTitle'>Los próximos 10 feriados</h2>
         {mapFive()}
       </div>
 

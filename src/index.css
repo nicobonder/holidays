@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0.5rem;
+}
+
+.sectionHoliday {
+  background: linear-gradient(to bottom right, #75aadb 50%, white 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nextHoliday, .pastHoliday, .futureHoliday, .listDiv  {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.nextHoliday {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.mainTitle {
+  color: white;
+  font-size: 2rem;
+  margin: 0.5rem auto;
+}
+
+.subTitle {
+  color: white;
+  font-size: 1.4rem;
+  margin: 0.5rem auto;
+  text-align: center;
+}
+
+.infoText {
+  color: white;
+  font-size: 1.1rem;
+  margin: 0.5rem auto;
+  text-align: center;
+}
+
+.dateSpan{
+  color: #75aadb;
+  font-weight: 600;
+ }
+
+.pastFuture {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem auto;
+  justify-content: center;
+}
+
+.pastHoliday, .futureHoliday {
+  width: 45%;
+  padding: 0.5rem;
+}
+
+.listDiv {
+  width: 91%;
+  padding: 0.5rem 1rem;
+  margin: 1rem auto;
+}
+
+.listHoliday {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem
+}
+
+.divisor {
+  font-weight: 600;
+  color: #75aadb;
+}
+
+.infoTextList  {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0.5rem auto;
+  text-align: center;
+}
+
+.footer {
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 3rem;
+  background-color: black;
+}
+
+a {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from 'react';
 import './index.css'
-
 
 //JSON CON LOS FERIADOS ARGENTINOS
 const HOLIDAYS = [
@@ -118,7 +118,10 @@ const HOLIDAYS = [
 ]
 ;
 
-// Current date
+
+function App() {
+
+  // Current date
 const today = new Date();
 const nextHoliday = HOLIDAYS.find(holiday => holiday.date > today) || {
   ...HOLIDAYS[0],
@@ -140,10 +143,29 @@ const futureHoliday = HOLIDAYS
   .sort((a, b) => a.date.getTime() - b.date.getTime())
   [1];
 
-const nextFive = HOLIDAYS
+const nextTen = HOLIDAYS
   .filter(holiday => holiday.date > today)
   .sort((a, b) => a.date.getTime() - b.date.getTime())
   .slice(0, 10);
+
+const mapTen = () => {
+  return (
+    <ul className='listHoliday'>
+      {nextTen.map(holiday => (
+        <li key={holiday.date.toISOString()}>
+          <p className='infoTextList'>{String.fromCharCode(160)} {holiday.date.getUTCDate().toString().padStart(2, "0")}/{(holiday.date.getUTCMonth() + 1).toString().padStart(2, "0")}  <span className='divisor'> | </span> </p>
+        </li>
+      ))}
+    </ul>
+  );
+};
+console.log('Ten', nextTen);
+console.log('mapTen', mapTen);
+
+const nextFive = HOLIDAYS
+  .filter(holiday => holiday.date > today)
+  .sort((a, b) => a.date.getTime() - b.date.getTime())
+  .slice(0, 5);
 
 const mapFive = () => {
   return (
@@ -156,8 +178,24 @@ const mapFive = () => {
     </ul>
   );
 };
-console.log('five', nextFive);
-console.log('mapfive', mapFive);
+
+//crear funcion para que si la pantalla es < a 768px se renderice mapFive y si es > a 768px se renderice mapTen
+const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const mapContent = windowWidth >= 768 ? mapTen() : mapFive();
+  const subTitle = windowWidth >= 768 ? 'Los próximos 10 feriados' : 'Los próximos 5 feriados';
 
 
 const msDiff: number = nextHoliday.date.getTime() - today.getTime();
@@ -166,7 +204,7 @@ const daysDiff: number = Math.ceil(msDiff / (1000 * 3600 * 24));
 // Relative Time Format function
 const rtf = new Intl.RelativeTimeFormat('es-AR', { numeric: "auto" });
 
-function App() {
+
   return (
       <>
     <main className='sectionHoliday'>
@@ -189,10 +227,9 @@ function App() {
         </div>
       </div>
       <div className='listDiv'>
-        <h2 className='subTitle'>Los próximos 10 feriados</h2>
-        {mapFive()}
+        <h2 className='subTitle'>{subTitle}</h2>
+        {mapContent}
       </div>
-
     
     </main>
     <footer className='footer'>

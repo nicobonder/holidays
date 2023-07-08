@@ -41,9 +41,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 45%;
   height: 30vh;
-  justify-content: center;
 }
 
 .mainTitle {
@@ -79,10 +79,14 @@
   margin: 0 auto 2rem auto;
   justify-content: center;
   height: 20vh;
+  align-items: center;
   
 }
 
 .pastHoliday, .futureHoliday {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 45%;
   padding: 0.5rem;
 }
@@ -106,6 +110,7 @@
 .listHoliday {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.3rem
 }
 
@@ -148,4 +153,113 @@ a {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@media (768px <= width <= 1080px) {
+  .nextHoliday {
+    width: 65%;
+  }
+
+  .pastHoliday, .futureHoliday {
+    min-height: 25vh;
+  }
+
+  .pastFuture {
+    height: 25vh;
+  }
+  
+  .listHoliday {
+    gap: 0.1rem
+  }
+
+  .infoTextList  {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (640px <= width <= 768px) {
+  .nextHoliday {
+    width: 92%;
+    height: 26vh;
+  }
+
+  .pastFuture {
+    height: 30vh;
+  }
+  
+  .pastHoliday, .futureHoliday {
+    min-height: 30vh;
+  }
+  
+  .listDiv {
+    width: 92%;
+    padding: 0.5rem 0.2rem;
+    margin: 0 auto;
+    height: 16vh;
+  
+  }
+
+  .listHoliday {
+    gap:0 0.1rem;
+    padding: 0;
+  }
+
+  .infoTextList  {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  
+}
+
+@media (width < 640px) {
+  .nextHoliday {
+    width: 94%;
+  }
+
+  .mainTitle {
+    font-size: 1.3rem;
+  }
+
+  .subTitle{
+    font-size: 1.1rem;
+    padding: 0 0.1rem;
+  }
+
+  .infoText {
+    font-size: 1rem;
+    margin: 0.3rem 0.1rem;
+  }
+
+  .pastFuture {
+    height: 34vh;
+  }
+
+  .pastHoliday, .futureHoliday {
+    min-height: 34vh;
+  }
+  
+  .listDiv {
+    width: 92%;
+    padding: 0.5rem 0.2rem;
+    margin: 0 auto 1rem auto;
+    height: 14vh;
+  
+  }
+
+  .listHoliday {
+    gap:0 0.1rem;
+    padding: 0;
+  }
+
+  .infoTextList  {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .footer {
+    height: 8vh;
+  }
+  
 }

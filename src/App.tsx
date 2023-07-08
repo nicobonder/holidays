@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './index.css'
 
 //JSON CON LOS FERIADOS ARGENTINOS
@@ -182,7 +182,7 @@ const mapFive = () => {
 //crear funcion para que si la pantalla es < a 768px se renderice mapFive y si es > a 768px se renderice mapTen
 const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
